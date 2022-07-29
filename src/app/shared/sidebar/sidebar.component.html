@@ -9,7 +9,7 @@
               </div>
               
               <div class="text-wrapper">
-                <p class="profile-name">Cristobal Colón</p>
+                <p class="profile-name">{{ profile?.nombre }}</p>
                 <div>
                   <small class="designation text-muted">Gerente</small>
                 </div>
@@ -39,7 +39,14 @@
             <span class="menu-title">Detalle</span>
           </a>
         </li>
-    
+        
+        <li class="nav-item" routerLink="/profile">
+          <a class="nav-link">
+            <i class="menu-icon fa fa-address-card"></i>
+            <span class="menu-title">Perfil</span>
+          </a>
+        </li>
+
         <li class="nav-item">
           <a (click)="logOut()" class="nav-link cursor">
             <i class="menu-icon fa fa-sign-out-alt"></i>

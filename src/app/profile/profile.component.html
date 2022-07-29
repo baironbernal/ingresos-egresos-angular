@@ -1,0 +1,43 @@
+<div class="row">
+      <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Editar perfil del usuario</h4>
+              <p class="card-description">
+                Aquí podrá editar la información de su cuenta
+              </p>
+  
+              <form [formGroup]="profileForm" (ngSubmit)="save()">
+                
+                <div class="form-group">
+                  <label>Nombre</label>
+                  <input type="text" 
+                         class="form-control"
+                         formControlName="nombre" 
+                         placeholder="Descripción"
+                         name="nombre">
+                </div>
+
+                <div class="form-group">
+                  <label>Password</label>
+                  <input type="text" 
+                         class="form-control"
+                         formControlName="password" 
+                         placeholder="******"
+                         name="password">
+                </div>
+  
+                <hr>
+                <button [disabled]="profileForm.invalid" type="submit" class="btn btn-success mr-2">
+                  <i *ngIf="!loading" class="fa fa-save"></i>
+                  <i *ngIf="loading" class="fa fa-spin fa-sync"></i>
+                  Guardar
+                </button>
+  
+  
+              </form>
+            </div>
+          </div>
+        </div>
+  </div>
+            

@@ -26,6 +26,7 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { appReducers } from './app.reducer';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { appReducers } from './app.reducer';
     DetalleComponent,
     FooterComponent,
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
