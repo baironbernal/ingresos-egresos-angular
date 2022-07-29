@@ -7,22 +7,24 @@
                 Especifique el monto y el tipo
               </p>
   
-              <form>
+              <form [formGroup]="incomeForm" (ngSubmit)="save()">
                 
                 <div class="form-group">
                   <label>Descripción</label>
                   <input type="text" 
-                         class="form-control" 
+                         class="form-control"
+                         formControlName="description" 
                          placeholder="Descripción"
-                         name="descripcion">
+                         name="description">
                 </div>
   
                 <div class="form-group">
                     <label>Monto</label>
                     <input type="number" 
-                           class="form-control" 
+                           class="form-control"
+                           formControlName="amount" 
                            placeholder="Monto"
-                           name="monto">
+                           name="amount">
                       <p>
                         Debe de ser un monto positivo
                       </p>
@@ -31,13 +33,21 @@
                 <div class="form-group">
                     <label>Tipo</label>
                     <br>
-                    <button type="button" class="btn btn-primary btn-block">Ingreso</button>
-                    <!-- <button type="button" class="btn btn-warning btn-block">Egreso</button> -->
+                    <button type="button" 
+                          class="btn btn-primary btn-block"
+                          *ngIf="type === 'egress'"      
+                          (click)="type = 'income'">Ingreso</button>
+                    
+                    <button type="button" 
+                          *ngIf="type === 'income'"
+                          (click)="type = 'egress'"
+                          class="btn btn-warning btn-block">Egreso</button>
                 </div>
   
                 <hr>
-                <button type="button" class="btn btn-success mr-2">
-                  <i class="fa fa-save"></i>
+                <button [disabled]="incomeForm.invalid" type="submit" class="btn btn-success mr-2">
+                  <i *ngIf="!loading" class="fa fa-save"></i>
+                  <i *ngIf="loading" class="fa fa-spin fa-sync"></i>
                   Agregar
                 </button>
   

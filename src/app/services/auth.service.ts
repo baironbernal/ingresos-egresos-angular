@@ -15,7 +15,12 @@ import { Subscription } from 'rxjs';
 export class AuthService {
 
   userSubscription: Subscription;
+  private _user: User;
 
+
+  get user() {
+    return { ... this._user  }
+  }
   constructor(
             private firestore: AngularFirestore,
               public auth: AngularFireAuth,
@@ -31,11 +36,13 @@ export class AuthService {
               .subscribe((fireStoreUser: any) => {
           
                 const user = User.fromFireBase(fireStoreUser);
+                this._user = user;
                 this.store.dispatch(setUser({user}))
 
               })
 
       } else {
+        this._user = null;
         this.userSubscription.unsubscribe()
         this.store.dispatch(unSetUser())
 
