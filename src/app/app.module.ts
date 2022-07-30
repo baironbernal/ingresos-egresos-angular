@@ -6,7 +6,6 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
-
 //Modules
 import { AppRoutingModule } from './app-routing.module';
 
@@ -27,6 +26,7 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { appReducers } from './app.reducer';
 import { ProfileComponent } from './profile/profile.component';
+import { OrderIncomePipe } from './pipes/order-income.pipe';
 
 
 @NgModule({
@@ -41,7 +41,8 @@ import { ProfileComponent } from './profile/profile.component';
     FooterComponent,
     NavbarComponent,
     SidebarComponent,
-    ProfileComponent
+    ProfileComponent,
+    OrderIncomePipe
   ],
   imports: [
     BrowserModule,
